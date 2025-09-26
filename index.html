@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHA MART - Toko SMBako Terpercaya</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B00;  /* Orange */
+            --secondary-color: #003366; /* Navy Blue */
+            --accent-color: #FF8C42;   /* Light Orange */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .logo {
+            height: 90px;
+            margin-right: 2px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.9)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .promo-banner {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .contact-info {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .friday-promo {
+            background-color: #FFEBD6;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .friday-promo i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .services-section {
+            padding: 80px 0;
+        }
+        
+        .service-item {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-text {
+            position: fixed;
+            bottom: 110px;
+            right: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .whatsapp-float:hover + .whatsapp-text {
+            opacity: 1;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .whatsapp-text {
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <div class="container">
+            <i class="fas fa-gift"></i> SETIAP JUMAT: Min. Belanja Rp 50.000 GRATIS Eskrim!
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="ATHA MART" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1>Selamat Datang di ATHA MART</h1>
+            <p>BELANJA DEKAT HARGA HEMAT</p>
+            <a href="#kontak" class="btn btn-primary btn-lg">Hubungi Kami</a>
+        </div>
+    </section>
+<div class="running-text-container">
+  <div class="running-text">
+    🌟 Selamat Datang di ATHA MART — Belanja Dekat Harga Hemat 🌟
+  </div>
+</div>
+
+<style>
+.running-text-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ff6a00, #003366);
+  padding: 10px 0;
+  
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.running-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+</style>
+    <!-- Services Section -->
+    <section id="layanan" class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center">Layanan Kami</h2>
+            
+            <!-- Friday Promo -->
+            <div class="friday-promo">
+                <i class="fas fa-ice-cream"></i>
+                <strong>Promo Spesial Jumat:</strong> Setiap pembelian minimal Rp 50.000, dapatkan gratis es krim!
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h4>Produk Berkualitas</h4>
+                        <p>Kami menyediakan berbagai kebutuhan sembako dengan kualitas terbaik dan harga terjangkau.</p>
+                    </div>
+                </div>
+<div class="col-md-4">
+    <div class="service-item">
+        <div class="service-icon">
+            <i class="fas fa-clock"></i>
+        </div>
+        <h4>Jam Operasional</h4>
+        <p>Buka setiap hari pukul <strong>06:30</strong> hingga <strong>21:00</strong>.</p>
+    </div>
+</div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4>Harga Terjangkau</h4>
+                        <p>Kami memberikan harga yang kompetitif dengan kualitas produk yang terjamin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Tentang ATHA MART</h2>
+<!-- Tambahkan di <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="about-text">
+    <p><i class="fas fa-quote-left"></i> <strong>Belanja Dekat, Harga Hemat</strong> <i class="fas fa-quote-right"></i></p>
+    <p><i class="fas fa-map-marker-alt"></i> Kampung Putra Buyut</p>
+    <p><i class="fas fa-store"></i> Berdiri Sejak :</strong> 2021, dengan komitmen melayani masyarakat sekitar dengan produk kebutuhan sehari-hari berkualitas dan harga yang terjangkau</p>
+</div>
+                <div class="col-lg-6 text-center">
+    <img src="logo.png" alt="Toko ATHA MART" style="width:200px; height:auto;">
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Kunjungi Toko Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Unnamed Road, Kampung Putra Buyut, Kec. Kampung Putra Buyut, Kabupaten Lampung Tengah, Lampung 34155</p>
+                    <p><i class="fas fa-clock"></i> Buka Setiap Hari: 6.30 - 21.00 WIB</p>
+                    <p><i class="fas fa-phone"></i> Telepon: 0816418808</p>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Hubungi Kami</h3>
+                    <p>Untuk informasi lebih lanjut tentang produk dan layanan kami, jangan ragu untuk menghubungi:</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0816-4188-08</p>
+                    <p><i class="fas fa-envelope"></i> Email: info@athamart.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ATHA MART - Belanja dekat harga hemat. Semua Hak Dilindungi.</p>
+            <p>Desain dengan <i class="fas fa-heart" style="color: #FF6B00;"></i> untuk masyarakat Kampung Putra Buyut</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/62816418808?text=Halo%20ATHA%20MART,%20saya%20ingin%20bertanya%20tentang%20produk%20dan%20layanan%20Anda" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="whatsapp-text">Hubungi kami via WhatsApp</div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
